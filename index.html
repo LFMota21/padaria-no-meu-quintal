@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Padaria no Meu Quintal</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+
+    <header>
+
+        <img src="logo.png" alt="Padaria no Meu Quintal">
+
+        <h1>Padaria no Meu Quintal</h1>
+
+        <p>Cafeteria e Mini Mercado</p>
+
+    </header>
+
+
+    <!-- CONTEÚDO -->
+
+    <main>
+
+        <h2>Cardápio</h2>
+
+
+        <!-- ABAS -->
+
+        <div class="abas">
+
+            <button class="aba ativa" onclick="mostrarAba('caldos', this)">
+                🍲 Caldos
+            </button>
+
+            <button class="aba" onclick="mostrarAba('porcoes', this)">
+                🍟 Porções
+            </button>
+
+            <button class="aba" onclick="mostrarAba('pizzas', this)">
+                🍕 Pizzas
+            </button>
+
+            <button class="aba" onclick="mostrarAba('lanches', this)">
+                🍔 Lanches
+            </button>
+
+            <button class="aba" onclick="mostrarAba('bebidas', this)">
+                🥤 Bebidas
+            </button>
+
+            <button class="aba" onclick="mostrarAba('cervejas', this)">
+                🍺 Cervejas
+            </button>
+
+        </div>
+
+
+        <!-- CALDOS -->
+
+        <section class="conteudo-aba ativa" id="caldos">
+
+            <h3>🍲 Caldos e Sopas</h3>
+
+            <div class="produto">
+                <span>Caldo de Mocotó</span>
+                <strong>R$ 24,90</strong>
+            </div>
+
+            <div class="produto">
+                <span>Caldo Verde</span>
+                <strong>R$ 24,90</strong>
+            </div>
+
+            <div class="produto">
+                <span>Canja de Galinha</span>
+                <strong>R$ 24,90</strong>
+            </div>
+
+            <div class="produto">
+                <span>Sopa de Ervilha</span>
+                <strong>R$ 24,90</strong>
+            </div>
+
+            <div class="produto">
+                <span>Sopa de Feijão</span>
+                <strong>R$ 24,90</strong>
+            </div>
+
+            <div class="produto">
+                <span>Sopa de Legumes</span>
+                <strong>R$ 24,90</strong>
+            </div>
+
+        </section>
+
+
+        <!-- PORÇÕES -->
+
+        <section class="conteudo-aba" id="porcoes">
+
+            <h3>🍟 Porções</h3>
+
+            <div class="produto">
+                <span>Batata Frita</span>
+                <strong>R$ 25,00</strong>
+            </div>
+
+            <div class="produto">
+                <span>Calabresa</span>
+                <strong>R$ 30,00</strong>
+            </div>
+
+            <div class="produto">
+                <span>Salame</span>
+                <strong>R$ 30,00</strong>
+            </div>
+
+            <div class="produto">
+                <span>Contra-filé</span>
+                <strong>R$ 50,00</strong>
+            </div>
+
+            <div class="produto">
+                <span>Tábua de Frios</span>
+                <strong>R$ 45,99</strong>
+            </div>
+
+        </section>
+
+
+        <!-- PIZZAS -->
+
+        <section class="conteudo-aba" id="pizzas">
+
+            <h3>🍕 Pizzas</h3>
+
+            <div class="produto">
+                <span>Atum</span>
+                <strong>Grande R$ 47,99 | Broto R$ 28,99</strong>
+            </div>
+
+            <div class="produto">
+                <span>Baiana</span>
+                <strong>Grande R$ 47,99 | Broto R$ 28,99</strong>
+            </div>
+
+            <div class="produto">
+                <span>Calabresa</span>
+                <strong>Grande R$ 44,99 | Broto R$ 27,49</strong>
+            </div>
+
+            <div class="produto">
+                <span>Escarola</span>
+                <strong>Grande R$ 50,99 | Broto R$ 30,49</strong>
+            </div>
+
+            <div class="produto">
+                <span>Espanhola</span>
+                <strong>Grande R$ 47,99 | Broto R$ 35,99</strong>
+            </div>
+
+            <div class="produto">
+                <span>Frango com Catupiry</span>
+                <strong>Grande R$ 50,99 | Broto R$ 30,49</strong>
+            </div>
+
+            <div class="produto">
+                <span>Marguerita</span>
+                <strong>Grande R$ 47,99 | Broto R$ 35,99</strong>
+            </div>
+
+            <div class="produto">
+                <span>Mussarela</span>
+                <strong>Grande R$ 44,99 | Broto R$ 27,49</strong>
+            </div>
+
+            <div class="produto">
+                <span>Lombo</span>
+                <strong>Grande R$ 54,99 | Broto R$ 32,49</strong>
+            </div>
+
+            <div class="produto">
+                <span>Palmito</span>
+                <strong>Grande R$ 50,99 | Broto R$ 30,49</strong>
+            </div>
+
+            <div class="produto">
+                <span>Portuguesa</span>
+                <strong>Grande R$ 50,99 | Broto R$ 30,49</strong>
+            </div>
+
+            <div class="produto">
+                <span>Peruana</span>
+                <strong>Grande R$ 50,99 | Broto R$ 30,49</strong>
+            </div>
+
+            <div class="produto">
+                <span>4 Queijos</span>
+                <strong>Grande R$ 54,99 | Broto R$ 32,49</strong>
+            </div>
+
+        </section>
+
+
+        <!-- LANCHES -->
+
+        <section class="conteudo-aba" id="lanches">
+
+            <h3>🍔 Lanches</h3>
+
+            <div class="produto">
+                <span>Americano</span>
+                <strong>R$ 21,00</strong>
+            </div>
+
+            <div class="produto">
+                <span>Bauru</span>
+                <strong>R$ 18,00</strong>
+            </div>
+
+            <div class="produto">
+                <span>Cachorro Quente</span>
+                <strong>R$ 14,00</strong>
+            </div>
+
+            <div class="produto">
+                <span>Churrasco com Queijo</span>
+                <strong>R$ 24,00</strong>
+            </div>
+
+            <div class="produto">
+                <span>Churrasco Simples</span>
+                <strong>R$ 22,00</strong>
+            </div>
+
+            <div class="produto">
+                <span>Calabresa</span>
+                <strong>R$ 21,00</strong>
+            </div>
+
+            <div class="produto">
+                <span>Linguiça</span>
+                <strong>R$ 21,00</strong>
+            </div>
+
+            <div class="produto">
+                <span>Misto Quente</span>
+                <strong>R$ 16,00</strong>
+            </div>
+
+            <div class="produto">
+                <span>Mortadela</span>
+                <strong>R$ 14,00</strong>
+            </div>
+
+            <div class="produto">
+                <span>Pernil</span>
+                <strong>R$ 22,00</strong>
+            </div>
+
+            <div class="produto">
+                <span>Queijo Branco</span>
+                <strong>R$ 22,00</strong>
+            </div>
+
+            <div class="produto">
+                <span>Queijo Quente</span>
+                <strong>R$ 16,00</strong>
+            </div>
+
+            <div class="produto">
+                <span>Salame com Queijo</span>
+                <strong>R$ 27,00</strong>
+            </div>
+
+            <div class="produto">
+                <span>X-Bacon</span>
+                <strong>R$ 22,00</strong>
+            </div>
+
+            <div class="produto">
+                <span>X-Burguer</span>
+                <strong>R$ 18,00</strong>
+            </div>
+
+            <div class="produto">
+                <span>X-Egg</span>
+                <strong>R$ 21,00</strong>
+            </div>
+
+            <div class="produto">
+                <span>X-Frango</span>
+                <strong>R$ 22,00</strong>
+            </div>
+
+            <div class="produto">
+                <span>X-Salada</span>
+                <strong>R$ 22,00</strong>
+            </div>
+
+            <div class="produto">
+                <span>X-Salada Bacon</span>
+                <strong>R$ 25,00</strong>
+            </div>
+
+            <div class="produto">
+                <span>X-Salada Duplo</span>
+                <strong>R$ 27,00</strong>
+            </div>
+
+            <div class="produto">
+                <span>X-Tudo</span>
+                <strong>R$ 31,00</strong>
+            </div>
+
+            <div class="produto">
+                <span>X-Tudo no Prato</span>
+                <strong>R$ 37,00</strong>
+            </div>
+
+        </section>
+
+
+        <!-- BEBIDAS -->
+
+        <section class="conteudo-aba" id="bebidas">
+
+            <h3>🥤 Bebidas</h3>
+
+            <div class="produto">
+                <span>Água</span>
+                <strong>R$ 4,00</strong>
+            </div>
+
+            <div class="produto">
+                <span>Água com Gás</span>
+                <strong>R$ 5,00</strong>
+            </div>
+
+            <div class="produto">
+                <span>Refrigerante 200ml</span>
+                <strong>R$ 3,50</strong>
+            </div>
+
+            <div class="produto">
+                <span>Refrigerante 350ml</span>
+                <strong>R$ 7,00</strong>
+            </div>
+
+            <div class="produto">
+                <span>Refrigerante 600ml</span>
+                <strong>R$ 9,00</strong>
+            </div>
+
+            <div class="produto">
+                <span>Refrigerante 2L</span>
+                <strong>A partir de R$ 15,00</strong>
+            </div>
+
+        </section>
+
+
+        <!-- CERVEJAS -->
+
+        <section class="conteudo-aba" id="cervejas">
+
+            <h3>🍺 Cervejas 600ml</h3>
+
+            <div class="produto">
+                <span>Antarctica</span>
+                <strong>R$ 12,00</strong>
+            </div>
+
+            <div class="produto">
+                <span>Skol</span>
+                <strong>R$ 12,00</strong>
+            </div>
+
+            <div class="produto">
+                <span>Brahma</span>
+                <strong>R$ 12,00</strong>
+            </div>
+
+            <div class="produto">
+                <span>Budweiser</span>
+                <strong>R$ 12,00</strong>
+            </div>
+
+            <div class="produto">
+                <span>Original</span>
+                <strong>R$ 14,00</strong>
+            </div>
+
+            <div class="produto">
+                <span>Spaten</span>
+                <strong>R$ 17,00</strong>
+            </div>
+
+            <div class="produto">
+                <span>Heineken</span>
+                <strong>R$ 18,00</strong>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- RODAPÉ -->
+
+    <footer>
+
+        <p>Padaria no Meu Quintal</p>
+
+        <p>Cafeteria e Mini Mercado</p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT DAS ABAS -->
+
+    <script>
+
+        function mostrarAba(id, botao) {
+
+            const conteudos =
+                document.querySelectorAll(".conteudo-aba");
+
+            const abas =
+                document.querySelectorAll(".aba");
+
+
+            /* Esconde todos os conteúdos */
+
+            conteudos.forEach(function(conteudo) {
+
+                conteudo.classList.remove("ativa");
+
+            });
+
+
+            /* Remove a seleção das abas */
+
+            abas.forEach(function(aba) {
+
+                aba.classList.remove("ativa");
+
+            });
+
+
+            /* Mostra o conteúdo escolhido */
+
+            const conteudoSelecionado =
+                document.getElementById(id);
+
+            conteudoSelecionado.classList.add("ativa");
+
+
+            /* Seleciona o botão clicado */
+
+            botao.classList.add("ativa");
+
+        }
+
+    </script>
+
+</body>
+
+</html>
