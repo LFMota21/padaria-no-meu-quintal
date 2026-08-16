@@ -107,23 +107,23 @@
         </div>
 
         <section class="conteudo-aba" id="café-da-manhã">
-
-         <div class="produto">
-    <span>Café com Leite</span>
+   <div class="produto">
+    <span>Café com leite</span>
 
     <div class="acoes-produto">
         <strong>R$ 5,00</strong>
-      <button onclick="adicionarProduto('Café com Leite', 5)">
+        <button onclick="adicionarProduto('Café com leite', 5)">
     Adicionar
 </button>
     </div>
 </div>
+          
 
                     <div class="produto">
     <span>Chocolate quente</span>
 
     <div class="acoes-produto">
-        <strong>R$ 5,00 | Grande R$ 10,00</strong>
+        <strong>R$ 5,00</strong>
         <button onclick="adicionarProduto('Chocolate quente', 5)">
     Adicionar
 </button>
@@ -162,25 +162,46 @@
     </div>
 </div>
 
-           <div class="produto">
+          <div class="produto">
+
     <span>Pão com ovo</span>
 
     <div class="acoes-produto">
+
         <strong>R$ 6,00</strong>
-        <button onclick="adicionarProduto('Pão com ovo', 6)">
+
+        <button onclick="adicionarPaoComOvo()">
     Adicionar
 </button>
+        </button>
+
+        <button onclick="togglePersonalizacao('paoOvo')">
+            Personalizar
+        </button>
+
     </div>
+
 </div>
 
-                   <div class="produto">
-    <span>Pão na Chapa</span>
+<div  id="paoOvo" class="personalizacao">
 
-    <div class="acoes-produto">
-        <strong>R$ 5,00</strong>
-        <button onclick="adicionarProduto('Pão na Chapa', 5)">
-    Adicionar
-</button>
+    <h4>🍞 Personalize seu pão</h4>
+
+    <label>
+        <input type="checkbox">
+        Queijo (+R$ 2,00)
+    </label>
+
+    <label>
+        <input type="checkbox">
+        Presunto (+R$ 2,00)
+    </label>
+
+    <label>
+        <input type="checkbox">
+        Ovo Extra (+R$ 2,00)
+    </label>
+
     </div>
 </div>
 
@@ -195,14 +216,44 @@
     </div>
 </div>
          <div class="produto">
-    <span>Pão com manteiga</span>
+
+    <span>Pão na chapa</span>
 
     <div class="acoes-produto">
+
         <strong>R$ 5,00</strong>
-        <button onclick="adicionarProduto('Pão com manteiga', 5)">
-    Adicionar
-</button>
+
+        <button onclick="adicionarPaonachapa()">
+            Adicionar
+        </button>
+
+        <button onclick="togglePersonalizacao('paoChapa')">
+            Personalizar
+        </button>
+
     </div>
+
+</div>
+
+<div id="paoChapa" class="personalizacao">
+
+    <h4>🍞 Personalize seu pão</h4>
+
+    <label>
+        <input type="checkbox">
+        Queijo (+R$ 2,00)
+    </label>
+
+    <label>
+        <input type="checkbox">
+        Presunto (+R$ 2,00)
+    </label>
+
+    <label>
+        <input type="checkbox">
+        Ovo no prato (+R$ 2,00)
+    </label>
+
 </div>
 
                     <div class="produto">

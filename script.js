@@ -104,3 +104,95 @@ function finalizarPedido() {
 
     });
 }
+function togglePersonalizacao(id) {
+
+    const area = document.getElementById(id);
+
+    if (area.style.display === "block") {
+        area.style.display = "none";
+    } else {
+        area.style.display = "block";
+    }
+}
+function togglePersonalizacao(id) {
+
+    const area = document.getElementById(id);
+
+    if (area.style.display === "block") {
+        area.style.display = "none";
+    } else {
+        area.style.display = "block";
+    }
+
+}
+function adicionarPaoComOvo() {
+   
+
+    let nome = "Pão com ovo";
+    let preco = 6;
+
+    const opcoes =
+        document.querySelectorAll("#paoOvo input[type='checkbox']");
+
+    opcoes.forEach(opcao => {
+
+        if (opcao.checked) {
+
+            if (opcao.parentElement.textContent.includes("Queijo")) {
+                nome += " + Queijo";
+                preco += 2;
+            }
+
+            if (opcao.parentElement.textContent.includes("Presunto")) {
+                nome += " + Presunto";
+                preco += 2;
+            }
+
+            if (opcao.parentElement.textContent.includes("Ovo Extra")) {
+                nome += " + Ovo Extra";
+                preco += 2;
+            }
+        }
+    });
+
+    adicionarProduto(nome, preco);
+
+    opcoes.forEach(opcao => {
+        opcao.checked = false;
+    });
+}
+function adicionarPaonachapa() {
+
+    let nome = "Pão na chapa";
+    let preco = 5;
+
+    const opcoes =
+        document.querySelectorAll("#paoChapa input[type='checkbox']");
+
+    opcoes.forEach(opcao => {
+
+        if (opcao.checked) {
+
+            if (opcao.parentElement.textContent.includes("Queijo")) {
+                nome += " + Queijo";
+                preco += 2;
+            }
+
+            if (opcao.parentElement.textContent.includes("Presunto")) {
+                nome += " + Presunto";
+                preco += 2;
+            }
+
+            if (opcao.parentElement.textContent.includes("Ovo no prato")) {
+                nome += " + Ovo no prato";
+                preco += 2;
+            }
+        }
+    });
+
+    adicionarProduto(nome, preco);
+
+    opcoes.forEach(opcao => {
+        opcao.checked = false;
+    });
+}
