@@ -162,18 +162,34 @@ main > h2 {
 
 .produto {
     display: flex;
-
-    justify-content: space-between;
-
     align-items: center;
-
-    gap: 15px;
-
+    justify-content: space-between;
+    gap: 10px;
     padding: 14px 5px;
-
     border-bottom: 1px solid #eee0d0;
+ .produto span {
+    flex: 1;
+}
 
-    font-size: 16px;
+.produto strong {
+    min-width: 150px;
+    text-align: right;
+    color: #9b5d22;
+}
+
+.produto button {
+    background-color: #542d20;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.produto button:hover {
+    background-color: #6d3b29;
+}
+
 }
 
 .produto:last-child {
@@ -269,4 +285,84 @@ footer p:last-child {
         font-size: 15px;
         padding: 13px 3px;
     }
+}
+
+.produto button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #542d20;
+    color: white;
+    cursor: pointer;
+}
+
+.produto button:hover {
+    background-color: #6d3b2a;
+}
+.carrinho {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+}
+#total {
+    font-size: 22px;
+    font-weight: bold;
+    color: #9b5d22;
+    margin-top: 10px;
+}
+.botao-limpar {
+    background-color: #b22222;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.botao-limpar:hover {
+    background-color: #cde2c7;
+    transform: scale(1.05);
+}
+.dados-pedido {
+    margin-top: 15px;
+}
+
+.dados-pedido input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.botao-finalizar {
+    width: 100%;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.botao-finalizar:hover {
+    background-color: #218838;
+}
+
+#mesa {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 15px 0;
+    font-size: 16px;
+    background: white;
 }

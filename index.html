@@ -14,6 +14,7 @@
 </head>
 
 <body>
+    
 
     <!-- CABEÇALHO -->
 
@@ -31,7 +32,41 @@
     <!-- CONTEÚDO -->
 
     <main>
+       <div class="carrinho">
+    <h2>🛒 Carrinho</h2>
 
+    <ul id="lista-carrinho"></ul>
+
+    <p id="total">Total: R$ 0,00</p>
+</div>
+
+<div class="dados-pedido">
+
+<select id="mesa">
+    <option value="">Selecione a mesa</option>
+    <option value="Mesa 1">Mesa 1</option>
+    <option value="Mesa 2">Mesa 2</option>
+    <option value="Mesa 3">Mesa 3</option>
+    <option value="Mesa 4">Mesa 4</option>
+    <option value="Mesa 5">Mesa 5</option>
+    <option value="Mesa 6">Mesa 6</option>
+    <option value="Mesa 7">Mesa 7</option>
+    <option value="Mesa 8">Mesa 8</option>
+    <option value="Mesa 9">Mesa 9</option>
+    <option value="Mesa 10">Mesa 10</option>
+</select>
+
+<button class="botao-finalizar" onclick="finalizarPedido()">
+    ✅ Finalizar Pedido
+</button>
+
+</script>
+
+</div>
+
+<button class="botao-limpar" onclick="limparCarrinho()">
+    🗑️ Limpar Carrinho
+</button>
         <h2>Cardápio</h2>
 
 
@@ -67,77 +102,152 @@
                 🍺 Cervejas
             </button>
 
+           
+
         </div>
 
         <section class="conteudo-aba" id="café-da-manhã">
 
-            <h3>☕ Café da Manhã</h3>
+         <div class="produto">
+    <span>Café com Leite</span>
 
-            <div class="produto">
-                <span>Café com Leite</span>
-                <strong>R$ 5,00 | Grande R$ 10,00</strong>
-            </div>
+    <div class="acoes-produto">
+        <strong>R$ 5,00</strong>
+      <button onclick="adicionarProduto('Café com Leite', 5)">
+    Adicionar
+</button>
+    </div>
+</div>
 
-            <div class="produto">
-                <span>
-                    Chocolate quente</span>
-                <strong>R$ 5,00 | Grande R$ 10,00</strong>
-            </div>
+                    <div class="produto">
+    <span>Chocolate quente</span>
 
-              <div class="produto">
-                <span>Café Expresso</span>
-                <strong>R$ 8,00</strong>
-            </div> 
+    <div class="acoes-produto">
+        <strong>R$ 5,00 | Grande R$ 10,00</strong>
+        <button onclick="adicionarProduto('Chocolate quente', 5)">
+    Adicionar
+</button>
+    </div>
+</div>
+                      <div class="produto">
+    <span>Café expresso</span>
 
-             <div class="produto">
-                <span>Cappuccino</span>
-                <strong>R$ 8,00</strong>
-            </div>
+    <div class="acoes-produto">
+        <strong>R$ 8,00</strong>
+        <button onclick="adicionarProduto('Café expresso', 8)">
+    Adicionar
+</button>
+    </div>
+</div>
 
-            <div class="produto">
-                <span>Pingado</span>
-                <strong>R$ 8,00</strong>
-            </div>
+                     <div class="produto">
+    <span>Capuccino</span>
 
-            <div class="produto">
-                <span>Pão com ovo</span>
-                <strong>R$ 6,00</strong>
-            </div>
+    <div class="acoes-produto">
+        <strong>R$ 8,00</strong>
+        <button onclick="adicionarProduto('Capuccino', 8)">
+    Adicionar
+</button>
+    </div>
+</div>
 
-            <div class="produto">
-                <span>Pão na Chapa</span>
-                <strong>R$ 5,00</strong>
-            </div>
+                    <div class="produto">
+    <span>Pingado</span>
+
+    <div class="acoes-produto">
+        <strong>R$ 8,00</strong>
+        <button onclick="adicionarProduto('Pingado', 8)">
+    Adicionar
+</button>
+    </div>
+</div>
 
            <div class="produto">
-                <span>Saida requeijão</span>
-                <strong>R$ 7,00</strong>
-            </div>
+    <span>Pão com ovo</span>
 
-            <div class="produto">
-                <span>Pao com manteiga</span>
-                <strong>R$ 5,00</strong>
-            </div>
+    <div class="acoes-produto">
+        <strong>R$ 6,00</strong>
+        <button onclick="adicionarProduto('Pão com ovo', 6)">
+    Adicionar
+</button>
+    </div>
+</div>
 
-            <div class="produto">
-                <span>Salgados</span>
-                <strong>R$ 8,00</strong>
-            </div>
+                   <div class="produto">
+    <span>Pão na Chapa</span>
 
-            <div class="produto">
-                <span>Pão de queijo</span>
-                <strong>R$ 6,00</strong>
-            </div>
+    <div class="acoes-produto">
+        <strong>R$ 5,00</strong>
+        <button onclick="adicionarProduto('Pão na Chapa', 5)">
+    Adicionar
+</button>
+    </div>
+</div>
+
+                   <div class="produto">
+    <span>Saida requeijão</span>
+
+    <div class="acoes-produto">
+        <strong>R$ 7,00</strong>
+        <button onclick="adicionarProduto('Saida requeijão', 7)">
+    Adicionar
+</button>
+    </div>
+</div>
+         <div class="produto">
+    <span>Pão com manteiga</span>
+
+    <div class="acoes-produto">
+        <strong>R$ 5,00</strong>
+        <button onclick="adicionarProduto('Pão com manteiga', 5)">
+    Adicionar
+</button>
+    </div>
+</div>
+
+                    <div class="produto">
+    <span>Salgados</span>
+
+    <div class="acoes-produto">
+        <strong>R$ 8,00</strong>
+        <button onclick="adicionarProduto('Salgados', 8)">
+    Adicionar
+</button>
+    </div>
+</div>
+
+                   <div class="produto">
+    <span>Pão de queijo</span>
+
+    <div class="acoes-produto">
+        <strong>R$ 6,00</strong>
+        <button onclick="adicionarProduto('Pão de queijo', 6)">
+    Adicionar
+</button>
+    </div>
+</div>
              
-            <div class="produto">
-                <span>Pão de queijo saida requeijão</span>
-                <strong>R$ 7,00</strong>
-            </div>
+                    <div class="produto">
+    <span>Pão de queijo saida requeijão</span>
 
-            <div class="produto">
-                <span>Pedaço de bolo</span>
-                <strong>R$ 4,00</strong>
-            </div>
+    <div class="acoes-produto">
+        <strong>R$ 7,00</strong>
+        <button onclick="adicionarProduto('Pão de queijo saida requeijão', 7)">
+    Adicionar
+</button>
+    </div>
+</div>
+
+                  <div class="produto">
+    <span>Pedaço de bolo</span>
+
+    <div class="acoes-produto">
+        <strong>R$ 4,00</strong>
+        <button onclick="adicionarProduto('Pedaço de bolo', 4)">
+    Adicionar
+</button>
+    </div>
+</div>
             
 
         </section>
@@ -150,35 +260,74 @@
             <h3>🍲 Caldos e Sopas</h3>
 
             <div class="produto">
-                <span>Caldo de Mocotó</span>
-                <strong>R$ 24,90</strong>
-            </div>
+    <span>Caldo de mocotó</span>
+
+    <div class="acoes-produto">
+        <strong>R$ 24,90</strong>
+            <button onclick="adicionarProduto('Caldo de mocotó', 24.90)">
+    Adicionar
+</button>
+    </div>
+</div>
 
             <div class="produto">
-                <span>Caldo Verde</span>
-                <strong>R$ 24,90</strong>
-            </div>
+    <span>Caldo Verde</span>
+
+    <div class="acoes-produto">
+        <strong>R$ 24,90</strong>
+      <button onclick="adicionarProduto('Caldo Verde', 24.90)">
+    Adicionar
+</button>
+     </div>
+</div>
+
+         
+            <div class="produto">
+    <span>Canja de Galinha</span>
+
+    <div class="acoes-produto">
+        <strong>R$ 24,90</strong>
+      <button onclick="adicionarProduto('Canja de Galinha', 24.90)">
+    Adicionar
+</button>
+     </div>
+</div>
+
+           
+            <div class="produto">
+    <span>Sopa de Ervilha</span>
+
+    <div class="acoes-produto">
+        <strong>R$ 24,90</strong>
+        <button onclick="adicionarProduto('Sopa de Ervilha', 24.90)">
+    Adicionar
+</button>
+    </div>
+</div>
+
+         
+            <div class="produto">
+    <span>Sopa de feijão</span>
+
+    <div class="acoes-produto">
+        <strong>R$ 24,90</strong>
+       <button onclick="adicionarProduto('Sopa de feijão', 24.90)">
+    Adicionar
+</button>
+    </div>
+</div>
+
 
             <div class="produto">
-                <span>Canja de Galinha</span>
-                <strong>R$ 24,90</strong>
-            </div>
+    <span>Sopa de Legumes</span>
 
-            <div class="produto">
-                <span>Sopa de Ervilha</span>
-                <strong>R$ 24,90</strong>
-            </div>
-
-            <div class="produto">
-                <span>Sopa de Feijão</span>
-                <strong>R$ 24,90</strong>
-            </div>
-
-            <div class="produto">
-                <span>Sopa de Legumes</span>
-                <strong>R$ 24,90</strong>
-            </div>
-
+    <div class="acoes-produto">
+        <strong>R$ 24,90</strong>
+        <button onclick="adicionarProduto('Sopa de Legumes', 24.90)">
+    Adicionar
+</button>
+    </div>
+</div>
         </section>
 
 
@@ -188,30 +337,64 @@
 
             <h3>🍟 Porções</h3>
 
+         
             <div class="produto">
-                <span>Batata Frita</span>
-                <strong>R$ 25,00</strong>
-            </div>
+    <span>Batata Frita</span>
 
+    <div class="acoes-produto">
+        <strong>R$ 25,00</strong>
+        <button onclick="adicionarProduto('Batata Frita', 25.00)">
+    Adicionar
+</button>
+    </div>
+</div>
+            
             <div class="produto">
-                <span>Calabresa</span>
-                <strong>R$ 30,00</strong>
-            </div>
+    <span>Calabresa</span>
 
-            <div class="produto">
-                <span>Salame</span>
-                <strong>R$ 30,00</strong>
-            </div>
+    <div class="acoes-produto">
+        <strong>R$30,00</strong>
+        <button onclick="adicionarProduto('Calabresa', 30.00)">
+    Adicionar
+</button>
+    </div>
+</div>
 
+          
             <div class="produto">
-                <span>Contra-filé</span>
-                <strong>R$ 50,00</strong>
-            </div>
+    <span>Salame</span>
 
+    <div class="acoes-produto">
+        <strong>R$ 30,00</strong>
+        <button onclick="adicionarProduto('Salame', 30.00)">
+    Adicionar
+</button>
+    </div>
+</div>
+
+         
             <div class="produto">
-                <span>Tábua de Frios</span>
-                <strong>R$ 45,99</strong>
-            </div>
+    <span>Contra-filé</span>
+
+    <div class="acoes-produto">
+        <strong>R$ 50,00</strong>
+        <button onclick="adicionarProduto('Contra-filé', 50.00)">
+    Adicionar
+</button>
+    </div>
+</div>
+
+          
+            <div class="produto">
+    <span>Tábua de Frios</span>
+
+    <div class="acoes-produto">
+        <strong>R$ 45,99</strong>
+       <button onclick="adicionarProduto('Tábua de Frios', 45.99)">
+    Adicionar
+</button>
+    </div>
+</div>
 
         </section>
 
@@ -222,71 +405,143 @@
 
             <h3>🍕 Pizzas</h3>
 
+                  
             <div class="produto">
-                <span>Atum</span>
-                <strong>Grande R$ 47,99 | Broto R$ 28,99</strong>
-            </div>
+    <span>Atum</span>
 
-            <div class="produto">
-                <span>Baiana</span>
-                <strong>Grande R$ 47,99 | Broto R$ 28,99</strong>
-            </div>
+    <div class="acoes-produto">
+        <strong>Grande R$47,99 | Broto R$28,99</strong>
+        <button onclick="adicionarProduto('Atum', 47.99)">
+    Adicionar
+</button>
+    </div>
+</div>
+              <div class="produto">
+    <span>Baiana</span>
 
-            <div class="produto">
-                <span>Calabresa</span>
-                <strong>Grande R$ 44,99 | Broto R$ 27,49</strong>
-            </div>
+    <div class="acoes-produto">
+        <strong>Grande R$47,99 | Broto R$28,99</strong>
+        <button onclick="adicionarProduto('Baiana', 47.99)">
+    Adicionar
+</button>
+    </div>
+</div>
+                 <div class="produto">
+    <span>Calabresa</span>
 
-            <div class="produto">
-                <span>Escarola</span>
-                <strong>Grande R$ 50,99 | Broto R$ 30,49</strong>
-            </div>
+    <div class="acoes-produto">
+        <strong>Grande R$44,99 | Broto R$27,49</strong>
+        <button onclick="adicionarProduto('Calabresa', 44.99)">
+    Adicionar
+</button>
+    </div>
+</div>
 
-            <div class="produto">
-                <span>Espanhola</span>
-                <strong>Grande R$ 47,99 | Broto R$ 35,99</strong>
-            </div>
+                  <div class="produto">
+    <span>Escarola</span>
 
-            <div class="produto">
-                <span>Frango com Catupiry</span>
-                <strong>Grande R$ 50,99 | Broto R$ 30,49</strong>
-            </div>
+    <div class="acoes-produto">
+        <strong>Grande R$50,99| Broto R$30,49</strong>
+        <button onclick="adicionarProduto('Escarola', 50.99)">
+    Adicionar
+</button>
+    </div>
+</div>
 
-            <div class="produto">
-                <span>Marguerita</span>
-                <strong>Grande R$ 47,99 | Broto R$ 35,99</strong>
-            </div>
+                  <div class="produto">
+    <span>Espanhola</span>
 
-            <div class="produto">
-                <span>Mussarela</span>
-                <strong>Grande R$ 44,99 | Broto R$ 27,49</strong>
-            </div>
+    <div class="acoes-produto">
+        <strong>Grande R$47,99 | Broto R$35,99</strong>
+        <button onclick="adicionarProduto('Espanhola', 47.99)">
+    Adicionar
+</button>
+    </div>
+</div>
+                <div class="produto">
+    <span>Frango com Catupiry</span>
 
-            <div class="produto">
-                <span>Lombo</span>
-                <strong>Grande R$ 54,99 | Broto R$ 32,49</strong>
-            </div>
+    <div class="acoes-produto">
+        <strong>Grande R$50,99 | Broto R$30,49</strong>
+        <button onclick="adicionarProduto('Frango com Catupiry', 50.99)">
+    Adicionar
+</button>
+    </div>
+</div>
+                 <div class="produto">
+    <span>Marguerita</span>
 
-            <div class="produto">
-                <span>Palmito</span>
-                <strong>Grande R$ 50,99 | Broto R$ 30,49</strong>
-            </div>
+    <div class="acoes-produto">
+        <strong>Grande R$47,99 | Broto R$35,99</strong>
+        <button onclick="adicionarProduto('Marguerita', 47.99)">
+    Adicionar
+</button>
+    </div>
+</div>
+               <div class="produto">             
+    <span>Mussarela</span>
 
-            <div class="produto">
-                <span>Portuguesa</span>
-                <strong>Grande R$ 50,99 | Broto R$ 30,49</strong>
-            </div>
+    <div class="acoes-produto">
+        <strong>Grande R$44,99 | Broto R$27,49</strong>
+        <button onclick="adicionarProduto('Mussarela', 44.99)">
+    Adicionar
+</button>
+    </div>
+</div>
 
-            <div class="produto">
-                <span>Peruana</span>
-                <strong>Grande R$ 50,99 | Broto R$ 30,49</strong>
-            </div>
+                 <div class="produto">
+    <span>Lombo</span>
 
-            <div class="produto">
-                <span>4 Queijos</span>
-                <strong>Grande R$ 54,99 | Broto R$ 32,49</strong>
-            </div>
+    <div class="acoes-produto">
+        <strong>Grande R$54,99 | Broto R$32,49</strong>
+        <button onclick="adicionarProduto('Lombo', 54.99)">
+    Adicionar
+</button>
+    </div>
+</div>
 
+                 <div class="produto">
+    <span>Palmito</span>
+
+    <div class="acoes-produto">
+        <strong>Grande R$50,99 | Broto R$30,49</strong>
+        <button onclick="adicionarProduto('Palmito', 50.99)">
+    Adicionar
+</button>
+    </div>
+</div>
+                 <div class="produto">
+    <span>Portuguesa</span>
+
+    <div class="acoes-produto">
+        <strong>Grande R$50,99 | Broto R$30,49</strong>
+        <button onclick="adicionarProduto('Portuguesa', 50.99)">
+    Adicionar
+</button>
+    </div>
+</div>
+
+                  <div class="produto">
+    <span>Peruana</span>
+
+    <div class="acoes-produto">
+        <strong>Grande R$50,99 | Broto R$30,49</strong>
+        <button onclick="adicionarProduto('Peruana', 50.99)">
+    Adicionar
+</button>
+    </div>
+</div>
+
+                 <div class="produto">
+    <span>4 Queijos</span>
+
+    <div class="acoes-produto">
+        <strong>Grande R$54,99 | Broto R$32,49</strong>
+        <button onclick="adicionarProduto('4 Queijos', 54.99)">
+    Adicionar
+</button>
+    </div>
+</div>
         </section>
 
 
@@ -295,116 +550,247 @@
         <section class="conteudo-aba" id="lanches">
 
             <h3>🍔 Lanches</h3>
+    <div class="produto">
+    <span>Americano</span>
+
+    <div class="acoes-produto">
+        <strong>R$21,00</strong>
+        <button onclick="adicionarProduto('Americano', 21.00)">
+    Adicionar
+</button>
+    </div>
+</div>
 
             <div class="produto">
-                <span>Americano</span>
-                <strong>R$ 21,00</strong>
-            </div>
+    <span>Bauru</span>
+
+    <div class="acoes-produto">
+        <strong>R$18,00</strong>
+        <button onclick="adicionarProduto('Bauru', 18.00)">
+    Adicionar
+</button>
+    </div>
+</div>
 
             <div class="produto">
-                <span>Bauru</span>
-                <strong>R$ 18,00</strong>
-            </div>
+    <span>Cachorro Quente</span>
+
+    <div class="acoes-produto">
+        <strong>R$14,00</strong>
+        <button onclick="adicionarProduto('Cachorro Quente', 14.00)">
+    Adicionar
+</button>
+    </div>
+</div>
 
             <div class="produto">
-                <span>Cachorro Quente</span>
-                <strong>R$ 14,00</strong>
-            </div>
+    <span>Churrasco com Queijo</span>
+
+    <div class="acoes-produto">
+        <strong>R$ 24,00</strong>
+        <button onclick="adicionarProduto('Churrasco com Queijo', 24.00)">
+    Adicionar
+</button>
+    </div>
+</div>
 
             <div class="produto">
-                <span>Churrasco com Queijo</span>
-                <strong>R$ 24,00</strong>
-            </div>
+    <span>Churrasco Simples</span>
+
+    <div class="acoes-produto">
+        <strong>R$ 22,00</strong>
+        <button onclick="adicionarProduto('Churrasco Simples', 22.00)">
+    Adicionar
+</button>
+    </div>
+</div>
 
             <div class="produto">
-                <span>Churrasco Simples</span>
-                <strong>R$ 22,00</strong>
-            </div>
+    <span>Calabresa</span>
+
+    <div class="acoes-produto">
+        <strong>R$ 21,00</strong>
+        <button onclick="adicionarProduto('Calabresa', 21.00)">
+    Adicionar
+</button>
+    </div>
+</div>
 
             <div class="produto">
-                <span>Calabresa</span>
-                <strong>R$ 21,00</strong>
-            </div>
+    <span>Linguiça</span>
+
+    <div class="acoes-produto">
+        <strong>R$ 21,00</strong>
+        <button onclick="adicionarProduto('Linguiça', 21.00)">
+    Adicionar
+</button>
+    </div>
+</div>
 
             <div class="produto">
-                <span>Linguiça</span>
-                <strong>R$ 21,00</strong>
-            </div>
+    <span>Misto Quente</span>
+
+    <div class="acoes-produto">
+        <strong>R$ 16,00</strong>
+        <button onclick="adicionarProduto('Misto Quente', 16.00)">
+    Adicionar
+</button>
+    </div>
+</div>
 
             <div class="produto">
-                <span>Misto Quente</span>
-                <strong>R$ 16,00</strong>
-            </div>
+    <span>Mortadela</span>
+
+    <div class="acoes-produto">
+        <strong>R$ 14,00</strong>
+        <button onclick="adicionarProduto('Mortadela', 14.00)">
+    Adicionar
+</button>
+    </div>
+</div>
 
             <div class="produto">
-                <span>Mortadela</span>
-                <strong>R$ 14,00</strong>
-            </div>
+    <span>Pernil</span>
+
+    <div class="acoes-produto">
+        <strong>R$ 22,00</strong>
+        <button onclick="adicionarProduto('Pernil', 22.00)">
+    Adicionar
+</button>
+    </div>
+</div>
 
             <div class="produto">
-                <span>Pernil</span>
-                <strong>R$ 22,00</strong>
-            </div>
+    <span>Queijo Branco</span>
+
+    <div class="acoes-produto">
+        <strong>R$ 22,00</strong>
+        <button onclick="adicionarProduto('Queijo Branco', 22.00)">
+    Adicionar
+</button>
+    </div>
+</div>
 
             <div class="produto">
-                <span>Queijo Branco</span>
-                <strong>R$ 22,00</strong>
-            </div>
+    <span>Queijo Quente</span>
+
+    <div class="acoes-produto">
+        <strong>R$ 16,00</strong>
+        <button onclick="adicionarProduto('Queijo Quente', 16.00)">
+    Adicionar
+</button>
+    </div>
+</div>
 
             <div class="produto">
-                <span>Queijo Quente</span>
-                <strong>R$ 16,00</strong>
-            </div>
+    <span>Salame com Queijo</span>
+
+    <div class="acoes-produto">
+        <strong>R$ 27,00</strong>
+        <button onclick="adicionarProduto('Salame com Queijo', 27.00)">
+    Adicionar
+</button>
+    </div>
+</div>
 
             <div class="produto">
-                <span>Salame com Queijo</span>
-                <strong>R$ 27,00</strong>
-            </div>
+    <span>X-Bacon</span>
+
+    <div class="acoes-produto">
+        <strong>R$ 22,00</strong>
+        <button onclick="adicionarProduto('X-Bacon', 22.00)">
+    Adicionar
+</button>
+    </div>
+</div>
 
             <div class="produto">
-                <span>X-Bacon</span>
-                <strong>R$ 22,00</strong>
-            </div>
+    <span>X-Burguer</span>
+
+    <div class="acoes-produto">
+        <strong>R$ 18,00</strong>
+        <button onclick="adicionarProduto('X-Burguer', 18.00)">
+    Adicionar
+</button>
+    </div>
+</div>
 
             <div class="produto">
-                <span>X-Burguer</span>
-                <strong>R$ 18,00</strong>
-            </div>
+    <span>X-Egg</span>
+
+    <div class="acoes-produto">
+        <strong>R$ 21,00</strong>
+        <button onclick="adicionarProduto('X-Egg', 21.00)">
+    Adicionar
+</button>
+    </div>
+</div>
 
             <div class="produto">
-                <span>X-Egg</span>
-                <strong>R$ 21,00</strong>
-            </div>
+    <span>X-Frango</span>
+
+    <div class="acoes-produto">
+        <strong>R$ 22,00</strong>
+        <button onclick="adicionarProduto('X-Frango', 22.00)">
+    Adicionar
+</button>
+    </div>
+</div>
 
             <div class="produto">
-                <span>X-Frango</span>
-                <strong>R$ 22,00</strong>
-            </div>
+    <span>X-Salada</span>
+
+    <div class="acoes-produto">
+        <strong>R$ 22,00</strong>
+        <button onclick="adicionarProduto('X-Salada', 22.00)">
+    Adicionar
+</button>
+    </div>
+</div>
 
             <div class="produto">
-                <span>X-Salada</span>
-                <strong>R$ 22,00</strong>
-            </div>
+    <span>X-Salada Bacon</span>
+
+    <div class="acoes-produto">
+        <strong>R$ 25,00</strong>
+        <button onclick="adicionarProduto('X-Salada Bacon', 25.00)">
+    Adicionar
+</button>
+    </div>
+</div>
 
             <div class="produto">
-                <span>X-Salada Bacon</span>
-                <strong>R$ 25,00</strong>
-            </div>
+    <span>X-Salada Duplo</span>
+
+    <div class="acoes-produto">
+        <strong>R$ 27,00</strong>
+        <button onclick="adicionarProduto('X-Salada Duplo', 27.00)">
+    Adicionar
+</button>
+    </div>
+</div>
 
             <div class="produto">
-                <span>X-Salada Duplo</span>
-                <strong>R$ 27,00</strong>
-            </div>
+    <span>X-Tudo</span>
 
-            <div class="produto">
-                <span>X-Tudo</span>
-                <strong>R$ 31,00</strong>
-            </div>
+    <div class="acoes-produto">
+        <strong>R$ 31,00</strong>
+        <button onclick="adicionarProduto('X-Tudo', 31.00)">
+    Adicionar
+</button>
+    </div>
+</div>
 
-            <div class="produto">
-                <span>X-Tudo no Prato</span>
-                <strong>R$ 37,00</strong>
-            </div>
+             <div class="produto">
+    <span>X-Tudo no Prato</span>
+
+    <div class="acoes-produto">
+        <strong>R$37,00</strong>
+        <button onclick="adicionarProduto('X-Tudo no Prato', 37.00)">
+    Adicionar
+</button>
+    </div>
+</div>
 
         </section>
 
@@ -415,35 +801,100 @@
 
             <h3>🥤 Bebidas</h3>
 
-            <div class="produto">
-                <span>Água</span>
-                <strong>R$ 4,00</strong>
-            </div>
+           <div class="produto">
+    <span>Água</span>
 
-            <div class="produto">
-                <span>Água com Gás</span>
-                <strong>R$ 5,00</strong>
-            </div>
+    <div class="acoes-produto">
+        <strong>R$4,00</strong>
+        <button onclick="adicionarProduto('Água', 4.00)">
+    Adicionar
+</button>
+    </div>
+</div>
+    <div class="produto">
+    <span>Água com Gás</span>
 
-            <div class="produto">
-                <span>Refrigerante 200ml</span>
-                <strong>R$ 3,50</strong>
-            </div>
+    <div class="acoes-produto">
+        <strong>R$5,00</strong>
+        <button onclick="adicionarProduto('Água com Gás', 5.00)">
+    Adicionar
+</button>
+    </div>
+</div>
 
-            <div class="produto">
-                <span>Refrigerante 350ml</span>
-                <strong>R$ 7,00</strong>
-            </div>
+                <div class="produto">
+    <span>Refrigerante 200ml</span>
 
-            <div class="produto">
-                <span>Refrigerante 600ml</span>
-                <strong>R$ 9,00</strong>
-            </div>
+    <div class="acoes-produto">
+        <strong>R$3,50</strong>
+        <button onclick="adicionarProduto('Refrigerante 200ml', 3.50)">
+    Adicionar
+</button>
+    </div>
+</div>
 
-            <div class="produto">
-                <span>Refrigerante 2L</span>
-                <strong>A partir de R$ 15,00</strong>
-            </div>
+             <div class="produto">
+    <span>Refrigerante 350ml</span>
+
+    <div class="acoes-produto">
+        <strong>R$7,00</strong>
+        <button onclick="adicionarProduto('Refrigerante 350ml', 7.00)">
+    Adicionar
+</button>
+    </div>
+</div>
+    <div class="produto">
+    <span>Refrigerante 600ml</span>
+
+    <div class="acoes-produto">
+        <strong>R$9,00</strong>
+        <button onclick="adicionarProduto('Refrigerante 600ml', 9.00)">
+    Adicionar
+</button>
+    </div>
+</div>
+               <div class="produto">
+    <span>Refrigerante Coca-Cola 2L</span>
+
+    <div class="acoes-produto">
+        <strong>R$15,00</strong>
+        <button onclick="adicionarProduto('Refrigerante Coca-Cola 2L', 15.00)">
+    Adicionar
+</button>
+    </div>
+</div>
+               <div class="produto">
+    <span>Refrigerante 2L</span>
+
+    <div class="acoes-produto">
+        <strong>R$13,00</strong>
+        <button onclick="adicionarProduto('Refrigerante 2L', 13.00)">
+    Adicionar
+</button>
+    </div>
+</div>
+
+               <div class="produto">
+    <span>Suco Natural | Copo </span>
+
+    <div class="acoes-produto">
+        <strong>R$12,00</strong>
+        <button onclick="adicionarProduto('Suco Natural | Copo ', 12.00)">
+    Adicionar
+</button>
+    </div>
+</div>
+    <div class="produto">
+    <span>Suco Natural | Jarra </span>
+
+    <div class="acoes-produto">
+        <strong>R$20,00</strong>
+        <button onclick="adicionarProduto('Suco Natural | Jarra ', 20.00)">
+    Adicionar
+</button>
+    </div>
+</div>
+
 
         </section>
 
@@ -454,40 +905,81 @@
 
             <h3>🍺 Cervejas 600ml</h3>
 
-            <div class="produto">
-                <span>Antarctica</span>
-                <strong>R$ 12,00</strong>
-            </div>
+               <div class="produto">
+    <span>Antarctica</span>
 
-            <div class="produto">
-                <span>Skol</span>
-                <strong>R$ 12,00</strong>
-            </div>
+    <div class="acoes-produto">
+        <strong>R$12,00</strong>
+        <button onclick="adicionarProduto('Antarctica', 12.00)">
+    Adicionar
+</button>
+    </div>
+</div>
 
-            <div class="produto">
-                <span>Brahma</span>
-                <strong>R$ 12,00</strong>
-            </div>
+               <div class="produto">
+    <span>Skol</span>
 
-            <div class="produto">
-                <span>Budweiser</span>
-                <strong>R$ 12,00</strong>
-            </div>
+    <div class="acoes-produto">
+        <strong>R$12,00</strong>
+        <button onclick="adicionarProduto('Skol', 12.00)">
+    Adicionar
+</button>
+    </div>
+</div>
 
-            <div class="produto">
-                <span>Original</span>
-                <strong>R$ 14,00</strong>
-            </div>
+             <div class="produto">
+    <span>Brahma</span>
 
-            <div class="produto">
-                <span>Spaten</span>
-                <strong>R$ 17,00</strong>
-            </div>
+    <div class="acoes-produto">
+        <strong>R$12,00</strong>
+        <button onclick="adicionarProduto('Brahma', 12.00)">
+    Adicionar
+</button>
+    </div>
+</div>
 
-            <div class="produto">
-                <span>Heineken</span>
-                <strong>R$ 18,00</strong>
-            </div>
+               <div class="produto">
+    <span>Budweiser</span>
+
+    <div class="acoes-produto">
+        <strong>R$12,00</strong>
+        <button onclick="adicionarProduto('Budweiser', 12.00)">
+    Adicionar
+</button>
+    </div>
+</div>
+
+               <div class="produto">
+    <span>Original</span>
+
+    <div class="acoes-produto">
+        <strong>R$14,00</strong>
+        <button onclick="adicionarProduto('Original', 14.00)">
+    Adicionar
+</button>
+    </div>
+</div>
+
+                <div class="produto">
+    <span>Spaten</span>
+
+    <div class="acoes-produto">
+        <strong>R$17,00</strong>
+        <button onclick="adicionarProduto('Spaten', 17.00)">
+    Adicionar
+</button>
+    </div>
+</div>
+              <div class="produto">
+    <span>Heineken</span>
+
+    <div class="acoes-produto">
+        <strong>R$18,00</strong>
+        <button onclick="adicionarProduto('Heineken', 18.00)">
+    Adicionar
+</button>
+    </div>
+</div>
 
 </section>
 
@@ -551,8 +1043,37 @@
 
         }
 
+     
     </script>
 
-</body>
+   <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+import {
+  getDatabase,
+  ref,
+  push
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-database.js";
+const firebaseConfig = {
+  apiKey: "AIzaSyDSWqXwZo-hLKFPAhtwEZK_GnM0T_1JcwY",
+  authDomain: "padaria-no-meu-quintal.firebaseapp.com",
+  databaseURL: "https://padaria-no-meu-quintal-default-rtdb.firebaseio.com",
+  projectId: "padaria-no-meu-quintal",
+  storageBucket: "padaria-no-meu-quintal.firebasestorage.app",
+  messagingSenderId: "149538172760",
+  appId: "1:149538172760:web:afa3ac3fc9240bc37a7f2d"
+};
 
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+
+window.database = database;
+window.ref = ref;
+window.push = push;
+</script>
+
+    <script src="script.js"></script>
+
+
+
+</body>
 </html>

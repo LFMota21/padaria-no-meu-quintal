@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Painel de Pedidos</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background: #f5eee4;
+    padding: 20px;
+    margin: 0;
+}
+
+h1{
+    text-align: center;
+    color: #542d20;
+    margin-bottom: 25px;
+}
+
+#pedidos{
+    max-width: 1000px;
+    margin: auto;
+}
+
+.pedido{
+    background: white;
+    border-left: 8px solid #e3a63b;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.pedido h2{
+    color: #542d20;
+    margin-bottom: 10px;
+}
+
+.pedido p{
+    font-size: 16px;
+    margin: 6px 0;
+}
+
+button{
+    background: #542d20;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+button:hover{
+    background: #6b3928;
+}
+
+.total{
+    color: #9b5d22;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+button:hover{
+    background:#218838;
+}
+
+</style>
+</head>
+<body>
+
+<h1>📋 Pedidos da Padaria</h1>
+
+<div id="pedidos"></div>
+<audio id="somPedido">
+    <source src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg" type="audio/ogg">
+</audio>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+
+import {
+    getDatabase,
+    ref,
+    onValue,
+    remove
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-database.js";
+
+const firebaseConfig = {
+    apiKey: "SUA_API_KEY",
+    authDomain: "padaria-no-meu-quintal.firebaseapp.com",
+    databaseURL: "https://padaria-no-meu-quintal-default-rtdb.firebaseio.com",
+    projectId: "padaria-no-meu-quintal",
+    storageBucket: "padaria-no-meu-quintal.firebasestorage.app",
+    messagingSenderId: "149538172760",
+    appId: "SEU_APP_ID"
+};
+
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+
+window.concluirPedido = function(id){
+
+    remove(
+        ref(database, "pedidos/" + id)
+    );
+
+};
+
+const pedidosDiv = document.getElementById("pedidos");
+let quantidadeAnterior = 0;
+
+onValue(ref(database, "pedidos"), (snapshot) => {
+
+    pedidosDiv.innerHTML = "";
+
+    const dados = snapshot.val();
+    const quantidadeAtual =
+    dados ? Object.keys(dados).length : 0;
+
+if (quantidadeAtual > quantidadeAnterior) {
+
+    document
+        .getElementById("somPedido")
+        .play();
+
+}
+
+quantidadeAnterior = quantidadeAtual;
+
+    if(!dados){
+        pedidosDiv.innerHTML =
+        "<h2>Nenhum pedido no momento.</h2>";
+        return;
+    }
+
+    for(let id in dados){
+
+        const pedido = dados[id];
+
+        let html = `
+        <div class="pedido">
+
+            <h2>${pedido.mesa}</h2>
+
+            <p class="total">
+    💰 Total: R$ ${pedido.total.toFixed(2)}
+</p>
+        `;
+
+        pedido.itens.forEach(item => {
+
+            html += `
+            <p>
+                ${item.nome} x${item.quantidade}
+            </p>
+            `;
+
+        });
+
+        html += `
+            <button onclick="concluirPedido('${id}')">
+                ✔ Concluir Pedido
+            </button>
+        </div>
+        `;
+
+        pedidosDiv.innerHTML += html;
+    }
+
+});
+
+</script>
+
+</body>
+</html>
