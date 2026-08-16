@@ -162,13 +162,37 @@ main > h2 {
 
 .produto {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     gap: 10px;
-    padding: 14px 5px;
+    padding: 14px 0;
     border-bottom: 1px solid #eee0d0;
- .produto span {
+}
+
+.produto span {
     flex: 1;
+    font-size: 16px;
+}
+
+.acoes-produto {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.produto strong {
+    color: #9b5d22;
+    white-space: nowrap;
+}
+
+.produto button {
+    background-color: #542d20;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 .produto strong {
@@ -190,7 +214,7 @@ main > h2 {
     background-color: #6d3b29;
 }
 
-}
+
 
 .produto:last-child {
     border-bottom: none;
