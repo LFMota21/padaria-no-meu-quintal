@@ -76,9 +76,11 @@ function finalizarPedido() {
     });
 
     const pedido = {
-        mesa: mesa,
+         mesa: mesa,
         itens: carrinho,
-        total: total
+        total: total,
+        horario: new Date().toLocaleTimeString('pt-BR'),
+        timestamp: Date.now()
     };
 
     push(

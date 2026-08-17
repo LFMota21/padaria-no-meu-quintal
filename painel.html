@@ -95,13 +95,20 @@ button:hover{
 
     <h2>Controle de Produtos</h2>
 
-    <button onclick="desativarProduto('Chocolate quente')">
-        Chocolate quente
-    </button>
+    <input
+        type="text"
+        id="buscarProduto"
+        placeholder="🔍 Procurar produto..."
+        style="
+            width:100%;
+            padding:12px;
+            margin-bottom:20px;
+            border-radius:8px;
+            border:1px solid #ccc;
+        "
+    >
 
-    <button onclick="desativarProduto('Café expresso')">
-        Café expresso
-    </button>
+    <div id="lista-produtos"></div>
 
 </div>
 
@@ -123,7 +130,7 @@ import {
  from "https://www.gstatic.com/firebasejs/12.2.1/firebase-database.js";
 
 const firebaseConfig = {
-    apiKey: "SUA_API_KEY",
+    apiKey: "AIzaSyDSWqXwZo-hLKFPAhtwEZK_GnM0T_1JcwY",
     authDomain: "padaria-no-meu-quintal.firebaseapp.com",
     databaseURL: "https://padaria-no-meu-quintal-default-rtdb.firebaseio.com",
     projectId: "padaria-no-meu-quintal",
@@ -134,6 +141,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
+
 window.mostrarAba = function(aba){
 
     document.getElementById("aba-pedidos")
@@ -146,16 +154,213 @@ window.mostrarAba = function(aba){
         .style.display = "block";
 };
 
-window.desativarProduto = function(nome){
+window.alterarProduto = function(nome, status){
+
+    window.toggleCategoria = function(id){
+
+    const categoria = document.getElementById(id);
+
+    if(categoria.style.display === "none"){
+        categoria.style.display = "block";
+    }else{
+        categoria.style.display = "none";
+    }
+
+};
 
     set(
         ref(database, "produtos/" + nome),
-        false
+        status
     );
 
-    alert(nome + " desativado!");
+};
+
+const listaProdutos = document.getElementById("lista-produtos");
+
+const campoBusca = document.getElementById("buscarProduto");
+
+const categorias = {
+
+    "☕ Café da Manhã": [
+        "Café com leite",
+        "Chocolate quente",
+        "Café expresso",
+        "Capuccino",
+        "Pingado",
+        "Pão com ovo",
+        "Saida requeijão",
+        "Pão na chapa",
+        "Salgados",
+        "Pão de queijo",
+        "Pão de queijo saida requeijão",
+        "Pedaço de bolo"
+    ],
+
+    "🍲 Caldos": [
+        "Caldo de mocotó",
+        "Caldo Verde",
+        "Canja de Galinha",
+        "Sopa de Ervilha",
+        "Sopa de feijão",
+        "Sopa de Legumes"
+    ],
+
+    "🍟 Porções": [
+        "Batata Frita",
+        "Calabresa",
+        "Salame",
+        "Contra-filé",
+        "Tábua de Frios"
+    ],
+
+    "🍕 Pizzas": [
+        "Atum",
+        "Baiana",
+        "Escarola",
+        "Espanhola",
+        "Frango com Catupiry",
+        "Marguerita",
+        "Mussarela",
+        "Lombo",
+        "Palmito",
+        "Portuguesa",
+        "Peruana",
+        "4 Queijos"
+    ],
+
+    "🍔 Lanches": [
+        "Americano",
+        "Bauru",
+        "Cachorro Quente",
+        "Churrasco com Queijo",
+        "Churrasco Simples",
+        "Linguiça",
+        "Misto Quente",
+        "Mortadela",
+        "Pernil",
+        "Queijo Branco",
+        "Queijo Quente",
+        "Salame com Queijo",
+        "X-Bacon",
+        "X-Burguer",
+        "X-Egg",
+        "X-Frango",
+        "X-Salada",
+        "X-Salada Bacon",
+        "X-Salada Duplo",
+        "X-Tudo",
+        "X-Tudo no Prato"
+    ],
+
+    "🥤 Bebidas": [
+        "Água",
+        "Água com Gás",
+        "Refrigerante 200ml",
+        "Refrigerante 350ml",
+        "Refrigerante 600ml",
+        "Coca-Cola 2L",
+        "Refrigerante 2L",
+        "Suco Natural | Copo",
+        "Suco Natural | Jarra"
+    ],
+
+    "🍺 Cervejas": [
+        "Antarctica",
+        "Skol",
+        "Brahma",
+        "Budweiser",
+        "Original",
+        "Spaten",
+        "Heineken"
+    ]
 
 };
+let dadosProdutos = {};
+
+function mostrarProdutos() {
+
+    listaProdutos.innerHTML = "";
+
+    const filtro = campoBusca.value.toLowerCase().trim();
+
+    for (let categoria in categorias) {
+
+        let encontrouProduto = false;
+
+        let produtosHTML = "";
+
+        categorias[categoria].forEach(nome => {
+
+            if (!nome.toLowerCase().includes(filtro)) {
+                return;
+            }
+
+            encontrouProduto = true;
+
+            const ativo = dadosProdutos[nome] !== false;
+
+            produtosHTML += `
+                <div class="pedido">
+
+                    <p>
+                        ${ativo ? "🟢" : "🔴"} ${nome}
+                    </p>
+
+                    <button onclick="alterarProduto('${nome}', ${!ativo})">
+                        ${ativo ? "Desativar" : "Ativar"}
+                    </button>
+
+                </div>
+            `;
+
+        });
+
+        if (encontrouProduto) {
+
+            listaProdutos.innerHTML += `
+                <h3
+                    onclick="this.nextElementSibling.style.display =
+                    this.nextElementSibling.style.display === 'none'
+                    ? 'block'
+                    : 'none'"
+                    style="
+                        cursor:pointer;
+                        background:#542d20;
+                        color:white;
+                        padding:10px;
+                        border-radius:8px;
+                        margin-top:10px;
+                    "
+                >
+                    ${categoria}
+                </h3>
+
+                <div style="display:block;">
+                    ${produtosHTML}
+                </div>
+            `;
+
+        }
+
+    }
+
+}
+
+
+onValue(ref(database, "produtos"), (snapshot) => {
+
+    dadosProdutos = snapshot.val() || {};
+
+    mostrarProdutos();
+
+});
+
+campoBusca.addEventListener("input", () => {
+
+    mostrarProdutos();
+
+});
+     
 
 window.concluirPedido = function(id){
 
@@ -163,7 +368,10 @@ window.concluirPedido = function(id){
         ref(database, "pedidos/" + id)
     );
 
-};
+
+}
+ 
+
 
 const pedidosDiv = document.getElementById("pedidos");
 let quantidadeAnterior = 0;
@@ -195,16 +403,27 @@ quantidadeAnterior = quantidadeAtual;
     for(let id in dados){
 
         const pedido = dados[id];
+        console.log(pedido);
+        const minutos = Math.floor(
+    (Date.now() - pedido.timestamp) / 60000
+);
 
-        let html = `
-        <div class="pedido">
+       let html = `
+<div class="pedido">
 
-            <h2>${pedido.mesa}</h2>
+    <h2>${pedido.mesa}</h2>
 
-            <p class="total">
-    💰 Total: R$ ${pedido.total.toFixed(2)}
-</p>
-        `;
+   <p>🕒 Pedido às ${pedido.horario}</p>
+
+    <p style="color:red;font-weight:bold;">
+        ⏳ Esperando há ${minutos} min
+    </p>
+
+    <p class="total">
+        💰 Total: R$ ${pedido.total.toFixed(2)}
+    </p>
+`;
+     
 
         pedido.itens.forEach(item => {
 
