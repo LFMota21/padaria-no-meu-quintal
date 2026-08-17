@@ -461,3 +461,11 @@ footer p:last-child {
 .produto button {
     width: 110px;
 }
+.abas-painel{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.abas-painel button{
+    margin:5px;
+}

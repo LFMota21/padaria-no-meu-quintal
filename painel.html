@@ -76,7 +76,35 @@ button:hover{
 
 <h1>📋 Pedidos da Padaria</h1>
 
-<div id="pedidos"></div>
+<div class="abas-painel">
+    <button onclick="mostrarAba('pedidos')">
+        📋 Pedidos
+    </button>
+
+    <button onclick="mostrarAba('produtos')">
+        ⚙️ Produtos
+    </button>
+</div>
+
+
+<div id="aba-pedidos">
+    <div id="pedidos"></div>
+</div>
+
+<div id="aba-produtos" style="display:none;">
+
+    <h2>Controle de Produtos</h2>
+
+    <button onclick="desativarProduto('Chocolate quente')">
+        Chocolate quente
+    </button>
+
+    <button onclick="desativarProduto('Café expresso')">
+        Café expresso
+    </button>
+
+</div>
+
 <audio id="somPedido">
     <source src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg" type="audio/ogg">
 </audio>
@@ -89,8 +117,10 @@ import {
     getDatabase,
     ref,
     onValue,
-    remove
-} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-database.js";
+    remove,
+    set
+}
+ from "https://www.gstatic.com/firebasejs/12.2.1/firebase-database.js";
 
 const firebaseConfig = {
     apiKey: "SUA_API_KEY",
@@ -104,6 +134,28 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
+window.mostrarAba = function(aba){
+
+    document.getElementById("aba-pedidos")
+        .style.display = "none";
+
+    document.getElementById("aba-produtos")
+        .style.display = "none";
+
+    document.getElementById("aba-" + aba)
+        .style.display = "block";
+};
+
+window.desativarProduto = function(nome){
+
+    set(
+        ref(database, "produtos/" + nome),
+        false
+    );
+
+    alert(nome + " desativado!");
+
+};
 
 window.concluirPedido = function(id){
 
