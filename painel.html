@@ -277,6 +277,8 @@ const categorias = {
 };
 let dadosProdutos = {};
 
+let categoriasAbertas = {};
+
 function mostrarProdutos() {
 
     listaProdutos.innerHTML = "";
@@ -286,7 +288,6 @@ function mostrarProdutos() {
     for (let categoria in categorias) {
 
         let encontrouProduto = false;
-
         let produtosHTML = "";
 
         categorias[categoria].forEach(nome => {
@@ -312,17 +313,24 @@ function mostrarProdutos() {
 
                 </div>
             `;
-
         });
 
         if (encontrouProduto) {
 
+            // Se a categoria ainda não tiver estado definido,
+            // ela começa aberta.
+            if (categoriasAbertas[categoria] === undefined) {
+                categoriasAbertas[categoria] = true;
+            }
+
+            const display =
+                categoriasAbertas[categoria]
+                ? "block"
+                : "none";
+
             listaProdutos.innerHTML += `
                 <h3
-                    onclick="this.nextElementSibling.style.display =
-                    this.nextElementSibling.style.display === 'none'
-                    ? 'block'
-                    : 'none'"
+                    onclick="toggleCategoria('${categoria}')"
                     style="
                         cursor:pointer;
                         background:#542d20;
@@ -335,16 +343,32 @@ function mostrarProdutos() {
                     ${categoria}
                 </h3>
 
-                <div style="display:block;">
+                <div style="display:${display};">
                     ${produtosHTML}
                 </div>
             `;
-
         }
-
     }
-
 }
+
+
+window.alterarProduto = function(nome, status){
+
+    set(
+        ref(database, "produtos/" + nome),
+        status
+    );
+
+};
+
+window.toggleCategoria = function(categoria){
+
+    categoriasAbertas[categoria] =
+        !categoriasAbertas[categoria];
+
+    mostrarProdutos();
+
+};
 
 
 onValue(ref(database, "produtos"), (snapshot) => {
