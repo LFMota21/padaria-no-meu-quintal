@@ -27,19 +27,33 @@ function atualizarCarrinho() {
 
     let soma = 0;
 
-    carrinho.forEach(produto => {
+    carrinho.forEach((produto, indice) => {
 
         const item = document.createElement("li");
 
         const subtotal =
             produto.preco * produto.quantidade;
 
-        item.textContent =
-            produto.nome +
-            " x" +
-            produto.quantidade +
-            " - R$ " +
-            subtotal.toFixed(2);
+        item.innerHTML = `
+            ${produto.nome}
+            x${produto.quantidade}
+            - R$ ${subtotal.toFixed(2)}
+
+            <button
+                onclick="removerItemCarrinho(${indice})"
+                style="
+                    margin-left:10px;
+                    padding:4px 8px;
+                    background:#c62828;
+                    color:white;
+                    border:none;
+                    border-radius:5px;
+                    cursor:pointer;
+                "
+            >
+                ❌
+            </button>
+        `;
 
         lista.appendChild(item);
 
@@ -48,6 +62,13 @@ function atualizarCarrinho() {
 
     total.textContent =
         "Total: R$ " + soma.toFixed(2);
+}
+
+function removerItemCarrinho(indice) {
+
+    carrinho.splice(indice, 1);
+
+    atualizarCarrinho();
 }
 
 function limparCarrinho() {
